@@ -63,16 +63,26 @@ public class DevelopApplication implements CommandLineRunner {
 
 //        // 입력
 //        Role role = new Role();
-//        role.setRoleId(1);
+//        role.setRoleId(3);
 //        role.setName("Role_TEST");
 //        roleDao.addRole(role);
 
         // 삭제
-//        boolean flag = roleDao.deleteRole(1);
+//        boolean flag = roleDao.deleteRole(3);
 //        System.out.println("flag "+flag); // 성공시 true
 
         // 읽어 오기
-        Role role = roleDao.getRole(1);
-        System.out.println(role.getRoleId()+", "+role.getName());
+//        Role role = roleDao.getRole(2);
+//        // null이 발생하지 않게 하려면,
+//        if(role != null) {
+//            System.out.println(role.getRoleId() + ", " + role.getName());
+//        }
+
+
+        // 여러건 읽어오기
+        List<Role> list = roleDao.getRoles();
+        for(Role role : list) {
+            System.out.println(role.getRoleId()+", "+role.getName());
+        }
     }
 }
