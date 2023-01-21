@@ -2,7 +2,9 @@ package com.study.demo1;
 // 이 패키지 이하로 Component를 찾아서 Bean에 올림
 
 import com.study.demo1.Repository.RoleDao;
+import com.study.demo1.Repository.UserDao;
 import com.study.demo1.domain.Role;
+import com.study.demo1.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -10,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +36,9 @@ public class DevelopApplication implements CommandLineRunner {
 
     @Autowired
     RoleDao roleDao;
+
+    @Autowired
+    UserDao userDao;
 
     @Override
     public void run(String... args) throws Exception {
@@ -80,9 +86,40 @@ public class DevelopApplication implements CommandLineRunner {
 
 
         // 여러건 읽어오기
-        List<Role> list = roleDao.getRoles();
-        for(Role role : list) {
-            System.out.println(role.getRoleId()+", "+role.getName());
-        }
+//        List<Role> list = roleDao.getRoles();
+//        for(Role role : list) {
+//            System.out.println(role.getRoleId()+", "+role.getName());
+//        }
+
+        // 유저 데이터 입력하기
+//        User user = new User();
+//        user.setUser_id(1);
+//        user.setEmail("gihun@gmail.com");
+//        user.setName("gihun");
+//        user.setPassword("1234");
+//        userDao.addUser(user);
+//        if(user != null) {
+//            System.out.println(user.getName()+"유저 등록완료");
+//        }
+
+        // 유저 삭제
+//        boolean flag = userDao.deleteUser(2);
+//        System.out.println("flag "+flag);
+
+        // 유저 읽어오기
+
+//        User user = userDao.getUser(2);
+//        if(user != null) {
+//            System.out.println(user.getUser_id()+", "+user.getEmail()+", "+user.getName());
+//        }
+
+        // 유저 한번에 읽어 오기
+//        List<User> list = userDao.getUsers();
+//        for(User user : list) {
+//            System.out.println(user.getUser_id()+", "+user.getEmail()+", "+user.getName());
+//        }
+
+        // 유저 수정은 못하겠어..
+
     }
 }
